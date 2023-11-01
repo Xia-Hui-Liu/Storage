@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Storage.Models.Entities.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<form asp-action="Filter" asp-controller="Products" method="get">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" name="name" placeholder="Search on name..." />
+        <div class="input-group-append">
+            <select class="form-control" name="category" asp-items="@Html.GetEnumSelectList<Category>()">
+                <option selected="selected" value="">Please select</option>
+            </select>
+        </div>
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-primary"><i class="fa fa-search">&emsp;Search</i></button>
+        </div>
+    </div>
+</form>
+
+<partial name="ProductListPartial" />
