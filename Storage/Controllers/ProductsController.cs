@@ -38,6 +38,7 @@ namespace Storage.Controllers
         }
 
         // GET: Products/Details/5
+        [HttpGet]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Product == null)
